@@ -421,9 +421,9 @@ I conduct my final analysis in R because it has a [package](https://cran.r-proje
 
 I begin by linking the results of my LDA anlaysis to data from the original Edubase dataset. I then take a look at the distribution of observations across different phases of school.
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/hist_phase_hat.png", width=600>{% endraw %}
-```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/hist_phase_hat.png", width=600>
+
 
 Not suprisingly, the vast majority of observations are primary schools (to use American terminology, elementary schools). In the analysis below, therefore, I report the results for primary schools only. However, I conducted the same analyses for secondary schools and the results are substantively similar.
 
@@ -431,34 +431,32 @@ Not suprisingly, the vast majority of observations are primary schools (to use A
 
 I examine whether the mean proportion in each topic varies across school types. I find no evidence that this is the case. 
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/school_topics.png", width=600>{% endraw %}
-```
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/school_topics.png", width=600>
 
 
 ## Test score performance
 
 I examine whether there is a relationship between an elemettary school's performance in Key Stage 2 math exams (exams that students sit at the end of primary school) and topic proportions in the schools clurbs. We might expect, for example, that schools with greater academic success would see a higher topic proportion for the correspondign topic. However, we see no evidence that this is the case.
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/performance_1.png", width=600>{% endraw %}
-```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/performance_1.png", width=600>
+
 
 
 ## Ofsted instepections.
 
 In addition to school test score being publicly reported, schools in England are subject to inspections by Ofsted. I explore whether there is a relationship between the grade a school was last assigned by Ofsted, and the topics discussed on their website.
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ofsted_topics.png", width=600>{% endraw %}
-```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ofsted_topics.png", width=600>
+
 
 
 It appears that schools getting the lowest grade mention inspectsion more. However, I do not read much into this result as closer examination reveals that very few schools fit into this category.
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ofsted_grades.png", width=600>{% endraw %}
-```
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/ofsted_grades.png", width=600>
+
 
 
 # 4. Conclusions
