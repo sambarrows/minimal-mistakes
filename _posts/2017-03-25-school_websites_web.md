@@ -132,8 +132,8 @@ Before fitting my LDA model, I need to break each blurb into individual elements
 <li>**Make all words lowercase**</li>
 <li>**Remove punctuation**</li>
 <li>***Tokenize***: divide string into a list of substrings.</li>
-<li>**Remove words not containing letters**
-<li>**Remove words containing numbers**
+<li>**Remove words not containing letters**</li>
+<li>**Remove words containing numbers**</li>
 <li>**Remove short words**: that is, of 3 characters or less.</li>
 <li>**Remove NLTK stopwords**: stopwords are a list of high frequency words like, the, to, and also.</li>
 <li>**Stem**: take the root of each word.</li>
