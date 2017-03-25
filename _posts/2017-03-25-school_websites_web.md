@@ -422,7 +422,7 @@ I conduct my final analysis in R because it has a [package](https://cran.r-proje
 I begin by linking the results of my LDA anlaysis to data from the original Edubase dataset. I then take a look at the distribution of observations across different phases of school.
 
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/hist_phase_hat.png", width=600>
+{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/hist_phase_school.png", width=600>{% endraw %}
 
 
 Not suprisingly, the vast majority of observations are primary schools (to use American terminology, elementary schools). In the analysis below, therefore, I report the results for primary schools only. However, I conducted the same analyses for secondary schools and the results are substantively similar.
