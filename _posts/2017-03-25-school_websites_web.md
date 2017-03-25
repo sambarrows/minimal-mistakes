@@ -1,7 +1,3 @@
----
-title: "Analyzing School Websites"
-excerpt: "I investigate what types of information schools in England choose to present on their websites. Information unravelling is one of the most well-known theories that explains the information that organizations voluntarily disclose. It posits that organizations disclose information about their quality if this information is favorable. Therefore, consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do."
----
 
 I investigate what types of information schools in England choose to present on their websites. 
 
@@ -255,11 +251,11 @@ LDA assumes that there are some number k of topics that live outside of the docu
 
 For each document, d
 <ol>
-<li>Draw a distribution over all k topics from the Dirichlet distribution: $\theta_d \sim Dir(\alpha)$. 
-<li>For each word, n, in the document:
+<li>Draw a distribution over all k topics from the Dirichlet distribution: $\theta_d \sim Dir(\alpha)$.</li> 
+<li>For each word, n, in the document:</li>
 <ol>
-<li>Draw a topic assignment from a multinomial distribution with the parameters you drew in (1): $Z_{d,n} \sim Multi(\theta_d).$ Use this to select the corresponding topic, $\beta_{z_{dn}}$, from the top matrix.
-<li>Draw a word from the topic that you selected in (2a): $w_{d,n} \sim \beta_{z_{d,n}}$
+<li>Draw a topic assignment from a multinomial distribution with the parameters you drew in (1): $Z_{d,n} \sim Multi(\theta_d).$ Use this to select the corresponding topic, $\beta_{z_{dn}}$, from the top matrix.</li>
+<li>Draw a word from the topic that you selected in (2a): $w_{d,n} \sim \beta_{z_{d,n}}$</li>
 </ol>
 </ol>
 
@@ -278,17 +274,17 @@ LDA is a hierarchical Bayesian model: a statistical model written in multiple le
 
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
 <ul>
-<li>number of topics, k
-<li>model hyperparameters (paramaters of the prior distributions)
+<li>number of topics, k</li>
+<li>model hyperparameters (paramaters of the prior distributions)</li>
 <ul>
-<li>$\alpha$ - influences document-topic density: with a higher alpha documents are like to be made up of a mixture of most of the topics, and not any single topic specifically. A low alpha value puts less such constraints on documents and means that it is more likely that a document may contain mixture of just a few, or even only one, of the topics.
-<li>$\eta$ - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically, while a low value means that a topic may contain a mixture of just a few of the words..
+<li>$\alpha$ - influences document-topic density: with a higher alpha documents are like to be made up of a mixture of most of the topics, and not any single topic specifically. A low alpha value puts less such constraints on documents and means that it is more likely that a document may contain mixture of just a few, or even only one, of the topics.</li>
+<li>$\eta$ - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically, while a low value means that a topic may contain a mixture of just a few of the words.</li>
 </ul>
 </ul>
 
 ## Choose number of topics
 
-I seek to compare the performance of models with different parameter values I use per-word perpelexity, folowing [Blie et al. (2003)](http://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf). Perplexity is a measure of the likelihood achieved on a held-out test set. A lower perplexity indicates better performance. 
+I seek to compare the performance of models with different parameter values I use per-word perpelexity, following [Blie et al. (2003)](http://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf). Perplexity is a measure of the likelihood achieved on a held-out test set. A lower perplexity indicates better performance. 
 
 I begin by calculating the perplexity of models with different numbers of topics. The code for this is in the file **```lda_choosek.py```**. I run this on EC2 using a m4.4xlarge instance type, and use gensim's [ldamulticore](https://radimrehurek.com/gensim/models/ldamulticore.html) to parellize the model training across the instance's eight cores. I then read in thse results locally, and plot perplexity against the number of topics.
 
