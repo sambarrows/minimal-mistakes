@@ -14,9 +14,7 @@ By exploring these questions here, I hope to help parents better understand how 
 
 I investigate how schools present themselves on their websites by analyzing text from the homepages of school websites. Specifically, I focus on the introductory "blurb" found on many school websites, for example:
 
-```html
-{% raw %}<img src="{{ site.url }}{{ site.baseurl }}/assets/images/blurb_example.png", width=600>{% endraw %}
-```
+![png](/assets/images/blurb_example.png)
 
 ## Scraping school websites
 
