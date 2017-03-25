@@ -1,4 +1,3 @@
-
 I investigate what types of information schools in England choose to present on their websites. 
 
 "Information unravelling" is one of the most well-known theories that explains the information that organizations voluntarily disclose. It posits that organizations disclose information about their quality if this information is favorable. Therefore, consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do. Through an unravelling process, higher-quality firms have an incentive to reveal information about their quality, which then puts pressure on all firms to disclose. 
@@ -275,11 +274,12 @@ LDA is a hierarchical Bayesian model: a statistical model written in multiple le
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
 <ul>
 <li>number of topics, k</li>
-<li>model hyperparameters (paramaters of the prior distributions)</li>
+<li>model hyperparameters (paramaters of the prior distributions)
 <ul>
 <li>$\alpha$ - influences document-topic density: with a higher alpha documents are like to be made up of a mixture of most of the topics, and not any single topic specifically. A low alpha value puts less such constraints on documents and means that it is more likely that a document may contain mixture of just a few, or even only one, of the topics.</li>
 <li>$\eta$ - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically, while a low value means that a topic may contain a mixture of just a few of the words.</li>
 </ul>
+</li>
 </ul>
 
 ## Choose number of topics
@@ -301,7 +301,7 @@ plt.show()
 ```
 
 
-![png](school_websites_web_files/school_websites_web_20_0.png)
+![png](/_posts/school_websites_web_files/school_websites_web_20_0.png)
 
 
 We see that per-word perplexity is increasing in the number of topics, which should not be the case. After some digging around on Google, it appears that there is an issue here with gensim. Lots of people have had the same problem (for example, [article 1](https://groups.google.com/forum/#!topic/gensim/iK692kdShi4), [article2](https://groups.google.com/forum/#!topic/gensim/TpuYRxhyIOc), [article 3](http://stackoverflow.com/questions/36913218/lda-with-gensim-strange-values-for-perplexity)) and it does not appear to have been resolved. 
