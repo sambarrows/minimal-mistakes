@@ -8,4 +8,4 @@ $$ cos $$
 
 $$ \latex $$
 
-And now are want to write a fraction in line \\( \frac{1}{2} \\)
+And now are want to write a fraction in line \\( \frac{1}{2} \\) and adding text right after it.
