@@ -1,3 +1,7 @@
+___
+title: 'Analyzing School Websites'
+excerpt: 'Analyze school website topics with LDA, using R, Python, and EC2. 
+---
 
 I investigate what information schools in England choose to present on their websites. In particular, should propsective parents should be concerned if a school fails to mention examination or inspection results? 
 
