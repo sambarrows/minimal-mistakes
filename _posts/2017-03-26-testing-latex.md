@@ -12,3 +12,6 @@ $$ \latex $$
 And now are want to write a fraction in line \\( \frac{1}{2} \\) and adding text right after it.
 
 SAM IS THE BEST!
+<ul>
+<li>Want to write fraction in line \\( \frac{1}{2} \\) in a list.</li>
+</ul>
