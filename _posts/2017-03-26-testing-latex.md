@@ -17,3 +17,15 @@ SAM IS THE BEST!
 $$ \frac{1}{2} $$
 asdfsdaf</li>
 </ul>
+
+blah blah blah
+
+* This is my first list item
+* Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+
+I'd also like to try doing an ordered list
+
+1. This is my first list item
+* Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+
+adfsag kweraf asdf
