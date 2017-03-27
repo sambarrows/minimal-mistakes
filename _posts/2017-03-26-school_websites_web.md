@@ -1,6 +1,6 @@
-___
+---
 title: 'Analyzing School Websites'
-excerpt: 'Analyze school website topics with LDA, using R, Python, and EC2. 
+excerpt: 'Analyzing school website topics with LDA, using R, Python, and EC2.' 
 ---
 
 I investigate what information schools in England choose to present on their websites. In particular, should propsective parents should be concerned if a school fails to mention examination or inspection results? 
@@ -11,7 +11,7 @@ But this isn't necessarily the case. The theory of "information unravelling" pro
 
 By shedding light on what topics schools choose to discuss on their websites, I hope to help parents understand whether they can take this information at face value when searching for schools. You can find a more detailed write-up of the methods used and complete replication code and data on my github.
 
-# 1. Building Dataset
+# Building Dataset
 
 I investigate how schools present themselves on their websites by analyzing text from the homepages of school websites. Specifically, I focus on the introductory "blurb" found on many school websites, for example:
 
@@ -89,7 +89,7 @@ Many of the blurbs of more than 4000 characters in length appear to have picked 
 
 I next restrict my sample to open state-funded and independent schools. I exclude both closed establishments and other types of establishment such as high education institutions. I also drop several types of state-funded schools for which there are few observations or which are a distinct type of institution, such as referall units, nursery schools, and university technical colleges. After mkaing these drops, I am left with a sample of 4676 observations. 
 
-# 2. Clustering with Latent Dirichlet Allocation (LDA)
+# Clustering with Latent Dirichlet Allocation (LDA)
 
 I identify the topics discussed in each school webside blurb using LDA, which is a mixed membership model. Mixed memership models allow us to associate a given data point with a set of different cluster assignments and to capture the relative proportion of different clusters in a datapoint.
 
@@ -407,7 +407,7 @@ There are at least two ways in which I should like to improve my LDA analysis. F
 
 Second, I should like to explore different algorithms for approximating the posterior/fitting my model. So far in training my LDA model I have only used ["online variational Bayes"](https://www.cs.princeton.edu/~blei/papers/HoffmanBleiBach2010b.pdf), the [method built into gensim](https://rare-technologies.com/multicore-lda-in-python-from-over-night-to-over-lunch/). I should like to instead try repeating my analsis with other methods, such as Gibbs sampling.  There is a wrapper in Python that should allow me to use Gibbs sampling with Gensim; however, it might instead be easier to use the LDA method in graphlab.
 
-# 3. Analysis and Findings
+# Analysis and Findings
 
 I conduct my final analysis in R because it has a [package](https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf) for fitting Dirichlet regression models (although in light of my findings, I haven't actually ended up using this package). You can find this code in ```4_analysis.R```.
 
@@ -441,7 +441,7 @@ It appears that schools getting the lowest grade mention inspectsion more. Howev
 
 ![png](/assets/images/ofsted_grades.png)
 
-# 4. Conclusions
+# Conclusions
 
 These results indicate that the topics discussed on school websites do not vary with the underlying performance of schools. 
 
