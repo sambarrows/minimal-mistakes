@@ -13,5 +13,7 @@ And now are want to write a fraction in line \\( \frac{1}{2} \\) and adding text
 
 SAM IS THE BEST!
 <ul>
-<li>Want to write fraction in line \\( \frac{1}{2} \\) in a list. Let's try difference ways of doign it here: first $$ \frac{1}{2} $$, second $$\\( \frac{1}{2} \\)$$, third <span>\\( \frac{1}{2} \\)</span>, fourth  <span>$ \frac{1}{2} $</span>, fifth $\frac{1}{2}$ asdfs.</li>
+<li>Want to write fraction in line \\( \frac{1}{2} \\) in a list. Let's try difference ways of doign it here: first $$ \frac{1}{2} $$, second $$\\( \frac{1}{2} \\)$$, third <span>\\( \frac{1}{2} \\)</span>, fourth  <span>$ \frac{1}{2} $</span>, fifth $ \frac{1}{2} $ asdfs,
+$$ \frac{1}{2} $$
+asdfsdaf</li>
 </ul>
