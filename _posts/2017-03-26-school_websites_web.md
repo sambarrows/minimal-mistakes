@@ -15,7 +15,7 @@ By shedding light on what topics schools choose to discuss on their websites, I 
 
 I investigate how schools present themselves on their websites by analyzing text from the homepages of school websites. Specifically, I focus on the introductory "blurb" found on many school websites, for example:
 
-![png](/assets/images/blurb_example.png)
+![png](/assets/images/school_websites_web_files/blurb_example.png)
 
 ## Scraping school websites
 
@@ -290,7 +290,7 @@ plt.show()
 ```
 
 
-![png](/assets/images/school_websites_web_20_0.png)
+![png](/assets/images/school_websites_web_files/school_websites_web_20_0.png)
 
 
 We see that per-word perplexity is increasing in the number of topics, which should not be the case. After some digging around on Google, it appears that there is an issue here with gensim. Lots of people have had the same problem (for example, [article 1](https://groups.google.com/forum/#!topic/gensim/iK692kdShi4), [article2](https://groups.google.com/forum/#!topic/gensim/TpuYRxhyIOc), [article 3](http://stackoverflow.com/questions/36913218/lda-with-gensim-strange-values-for-perplexity)) and it does not appear to have been resolved. 
@@ -408,7 +408,7 @@ I conduct my final analysis in R because it has a [package](https://cran.r-proje
 
 I begin by linking the results of my LDA anlaysis to data from the original Edubase dataset. I then take a look at the distribution of observations across different phases of school.
 
-![png](/assets/images/hist_phase_school.png)
+![png](/assets/images/school_websites_web_files/hist_phase_school.png)
 
 Not suprisingly, the vast majority of observations are primary schools (to use American terminology, elementary schools). In the analysis below, therefore, I report the results for primary schools only. However, I conducted the same analyses for secondary schools and the results are substantively similar.
 
@@ -416,23 +416,23 @@ Not suprisingly, the vast majority of observations are primary schools (to use A
 
 I examine whether the mean proportion in each topic varies across school types. I find no evidence that this is the case. 
 
-![png](/assets/images/school_topics.png)
+![png](/assets/images/school_websites_web_files/school_topics.png)
 
 ## Test score performance
 
 I examine whether there is a relationship between an elemettary school's performance in Key Stage 2 math exams (exams that students sit at the end of primary school) and topic proportions in the schools clurbs. We might expect, for example, that schools with greater academic success would see a higher topic proportion for the correspondign topic. However, we see no evidence that this is the case.
 
-![png](/assets/images/performance_1.png)
+![png](/assets/images/school_websites_web_files/performance_1.png)
 
 ## Ofsted instepections.
 
 In addition to school test score being publicly reported, schools in England are subject to inspections by Ofsted. I explore whether there is a relationship between the grade a school was last assigned by Ofsted, and the topics discussed on their website.
 
-![png](/assets/images/ofsted_topics.png)
+![png](/assets/images/school_websites_web_files/ofsted_topics.png)
 
 It appears that schools getting the lowest grade mention inspectsion more. However, I do not read much into this result as closer examination reveals that very few schools fit into this category.
 
-![png](/assets/images/ofsted_grades.png)
+![png](/assets/images/school_websites_web_files/ofsted_grades.png)
 
 # Conclusions
 
