@@ -297,7 +297,7 @@ plt.show()
 ```
 
 
-![png](school_websites_web_files/school_websites_web_20_0.png)
+![png](/assets/images/school_websites_web_20_0.png)
 
 
 We see that per-word perplexity is increasing in the number of topics, which should not be the case. After some digging around on Google, it appears that there is an issue here with gensim. Lots of people have had the same problem (for example, [article 1](https://groups.google.com/forum/#!topic/gensim/iK692kdShi4), [article2](https://groups.google.com/forum/#!topic/gensim/TpuYRxhyIOc), [article 3](http://stackoverflow.com/questions/36913218/lda-with-gensim-strange-values-for-perplexity)) and it does not appear to have been resolved. 
