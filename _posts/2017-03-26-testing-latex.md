@@ -26,6 +26,29 @@ blah blah blah
 I'd also like to try doing an ordered list
 
 1. This is my first list item
-* Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+    1. Sublist item. Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+2. This is my second list item
 
 adfsag kweraf asdf
+
+1. This is my first list item
+    i. Sublist item. Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+2. This is my second list item
+
+adfsag kweraf asdf
+
+1. This is my first list item
+    A. Sublist item. Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+2. This is my second list item
+
+adfsag kweraf asdf
+
+1. This is my first list item
+    a. Sublist item. Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+2. This is my second list item
+
+adfsag kweraf asdf
+
+1. This is my first list item
+    * Sublist item. Lets put a fraction in second list item \\( \frac{1}{2} \\) right about here.
+2. This is my second list item
