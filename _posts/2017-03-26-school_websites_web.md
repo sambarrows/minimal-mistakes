@@ -19,7 +19,7 @@ I investigate how schools present themselves on their websites by analyzing text
 
 ## Scraping school websites
 
-I began by downloading a list of 26,641 urls for the websites of schools in England from the Department of Education's [Edubase public portal](http://www.education.gov.uk/edubase/home.xhtml). I then scraped the text from all of the working URLs using [Scrapy](https://scrapy.org/) on an EC2 m4.xlarge instance. You can find this code in the *schools_spider* directory.
+I began by downloading a list of 26,641 urls for the websites of schools in England from the Department of Education's [Edubase public portal](http://www.education.gov.uk/edubase/home.xhtml). I then scraped the text from all of the working URLs using [Scrapy](https://scrapy.org/) on an EC2 m4.xlarge instance.
 
 The primary difficulty in building my scraper was that schools have text about all kinds of things on their homepage, and comparing the introductory blurb from one website with a news story from another is unlikely to yield much of interest. Further complicating matters, the construction of websites is inconsistent across schools, making it difficult to easily capture the introductory blurb.
 
@@ -253,7 +253,7 @@ For each document, d
 1. Draw a distribution over all k topics from the Dirichlet distribution: \\( \theta_d \sim Dir(\alpha) \\). 
 2. For each word, n, in the document:
     * Draw a topic assignment from a multinomial distribution with the parameters you drew in (1): \\( Z_{d,n} \sim Multi(\theta_d) \\). Use this to select the corresponding topic, \\( \beta_{z_{dn}} \\), from the top matrix.
-    * Draw a word from the topic that you selected in (2a): \\( w_{d,n} \sim \beta_{z_{d,n}} \\)</li>
+    * Draw a word from the topic that you selected in (2a): \\( w_{d,n} \sim \beta_{z_{d,n}} \\)
 
 
 ### Computation
@@ -299,11 +299,11 @@ In light of this issue with gensim, I ignore the elbow method. I instead spent s
 
 ## Choose values of alpha and eta
 
-I had originally indended to conduct a grid search to explore how perplexity varies with different values of alpha and eta. The code for this is in **```lda_grid.py```**. However, given the problems with calcuating perplexity when using gensim, I instead decided to use the deafult values of alpha and eta.
+I had originally indended to conduct a grid search to explore how perplexity varies with different values of alpha and eta. However, given the problems with calcuating perplexity when using gensim, I instead decided to use the deafult values of alpha and eta.
 
 ## Run model with chosen parameters
 
-I fit a model with 8 topics and teh default values of alpha and eta. I again fit this model in EC2. The code can be found in **```lda_final.py```**, and is also below:
+I fit a model with 8 topics and teh default values of alpha and eta. I again fit this model in EC2.
 
 ```python
 my_topics = 8
@@ -402,7 +402,7 @@ Second, I should like to explore different algorithms for approximating the post
 
 # Analysis and Findings
 
-I conduct my final analysis in R because it has a [package](https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf) for fitting Dirichlet regression models (although in light of my findings, I haven't actually ended up using this package). You can find this code in ```4_analysis.R```.
+I conduct my final analysis in R because it has a [package](https://cran.r-project.org/web/packages/DirichletReg/DirichletReg.pdf) for fitting Dirichlet regression models (although in light of my findings, I haven't actually ended up using this package).
 
 ## Phases of school
 
