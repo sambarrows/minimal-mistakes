@@ -250,14 +250,11 @@ Here, I briefly discuss the LDA model and inference using this model. For furthe
 LDA assumes that there are some number k of topics that live outside of the document collection. Each topic is a distribution over the entire fixed vocabulary of v words (that is, a vector that assigns a probability to every word in the vocabulary). The topics (the distributions over words) follow a v-dimensional Dirichlet distribution : \\( \beta_k \sim Dir(\eta) \\). LDA posits the following data generation process:
 
 For each document, d
-<ol>
-<li>Draw a distribution over all k topics from the Dirichlet distribution: \\( \theta_d \sim Dir(\alpha) \\).</li> 
-<li>For each word, n, in the document:</li>
-<ol>
-<li>Draw a topic assignment from a multinomial distribution with the parameters you drew in (1): \\( Z_{d,n} \sim Multi(\theta_d) \\). Use this to select the corresponding topic, \\( \beta_{z_{dn}} \\), from the top matrix.</li>
-<li>Draw a word from the topic that you selected in (2a): \\( w_{d,n} \sim \beta_{z_{d,n}} \\)</li>
-</ol>
-</ol>
+1. Draw a distribution over all k topics from the Dirichlet distribution: \\( \theta_d \sim Dir(\alpha) \\). 
+2. For each word, n, in the document:
+    * Draw a topic assignment from a multinomial distribution with the parameters you drew in (1): \\( Z_{d,n} \sim Multi(\theta_d) \\). Use this to select the corresponding topic, \\( \beta_{z_{dn}} \\), from the top matrix.
+    * Draw a word from the topic that you selected in (2a): \\( w_{d,n} \sim \beta_{z_{d,n}} \\)</li>
+
 
 ### Computation
 
@@ -268,15 +265,11 @@ LDA is a hierarchical Bayesian model: a statistical model written in multiple le
 ### Setting up model
 
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
-<ul>
-<li>number of topics, k</li>
-<li>model hyperparameters (paramaters of the prior distributions)
-<ul>
-<li>\\( \alpha \\) - influences document-topic density: with a higher alpha documents are more likely to be made up of a mixture of most of the topics, and not any single topic specifically.</li>
-<li>\\( \eta \\) - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically.</li>
-</ul>
-</li>
-</ul>
+
+* number of topics, k</li>
+* model hyperparameters (paramaters of the prior distributions)
+    * \\( \alpha \\) - influences document-topic density: with a higher alpha documents are more likely to be made up of a mixture of most of the topics, and not any single topic specifically.
+    * \\( \eta \\) - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically.
 
 ## Choose number of topics
 
