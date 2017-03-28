@@ -1,7 +1,8 @@
 ---
 title: 'Analyzing School Review Topics'
 excerpt: 'With LDA, using R, Python (nltk, gensim), and EC2.'
-teaser: /assets/images/great_schools_web_files/alluspoints.png  
+header:
+  teaser: /assets/images/great_schools_web_files/alluspoints.png  
 ---
 
 This project analyzes data from the nearly one million ratings and reviews submitted to GreatSchools, the largest online review site for schools in the world. We want to understand whether reviews contain information that may be useful for either parents or policymakers. We also want to understand the types of pressures that different schools may face if parents respond to online reviews in their school choices and online reviews serve as a form of crowd-sourced accountability.

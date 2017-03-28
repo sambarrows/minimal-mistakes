@@ -1,7 +1,8 @@
 ---
 title: 'Analyzing School Website Topics'
 excerpt: 'With LDA, using R, Python (scrapy, nltk, gensim), and EC2.'
-teaser: /assets/images/school_websites_web_files/school_topics.png 
+header:
+  teaser: /assets/images/school_websites_web_files/school_topics.png 
 ---
 
 I investigate what information schools in England choose to present on their websites. In particular, should propsective parents should be concerned if a school fails to mention examination or inspection results? 
