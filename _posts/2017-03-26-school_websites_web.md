@@ -248,7 +248,7 @@ corpora.MmCorpus.serialize('../aws_dir/lda_project/Data/lda_corpus.mm', corpus)
 Here, I briefly discuss the LDA model and inference using this model. For further details, David Blei has an [excellent couple of talks](http://videolectures.net/mlss09uk_blei_tm/) introducing topic modelling, and LDA in particular.
 
 ### Probabalistic generative model
-
+{:no_toc}
 LDA assumes that there are some number k of topics that live outside of the document collection. Each topic is a distribution over the entire fixed vocabulary of v words (that is, a vector that assigns a probability to every word in the vocabulary). The topics (the distributions over words) follow a v-dimensional Dirichlet distribution : \\( \beta_k \sim Dir(\eta) \\). LDA posits the following data generation process:
 
 For each document, d
@@ -259,13 +259,13 @@ For each document, d
 
 
 ### Computation
-
+{:no_toc}
 The only variable form the above model that we actually get to observe is the words \\( W_{d,n} \\). We need to infer the latent (hidden) variables in the model from the data; specifically, we need to infer per-word topic assignments (\\( z_{d,n} \\)), per-document topic proportions (\\( \theta_d \\)), and per-corpus topic distributions (\\( \beta_k \\)).
 
 LDA is a hierarchical Bayesian model: a statistical model written in multiple levels that estimates the parameters of the posterior distribution using the Bayesian method. In this case, the posterior is the distribution of the hidden variables given the observations (words). Unfortunately, this posterior is intractable to compute. Therefore, we appeal to approximate posterior inference of the posterior (that is, we need a method that will infer an approximation of the posterior distribution). There are a variety of methods for doing this, but here we will use [online variational Bayes](https://rare-technologies.com/tutorial-on-mallet-in-python/).
 
 ### Setting up model
-
+{:no_toc}
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
 
 * number of topics, k
