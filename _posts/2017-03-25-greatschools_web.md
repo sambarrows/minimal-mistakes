@@ -1,3 +1,8 @@
+---
+title: 'Analyzing School Review Topics'
+excerpt: 'With LDA, using R, Python (nltk, gensim), and EC2.' 
+---
+
 This project analyzes data from the nearly one million ratings and reviews submitted to GreatSchools, the largest online review site for schools in the world. We want to understand whether reviews contain information that may be useful for either parents or policymakers. We also want to understand the types of pressures that different schools may face if parents respond to online reviews in their school choices and online reviews serve as a form of crowd-sourced accountability.
 
 You can find a much more detailed discussion of our methods and findings [here](https://sites.google.com/site/cs109greatschools/?invite=CNHf3egM) and complete code on my github. Unfortunately, I cannot share the data used as it is proprietory and under our licensing agreement was erased following the project.
@@ -58,7 +63,7 @@ Using blind review by two team members, then verification by all team members, w
 
 Looking at the topics we have identified using LDA, the largest proportion of reviews talked about school administration - principals, staff, teachers, policies and organization.  The next segment was about school programs, both curricular and extra curricular.  The third most common review topic was school culture.
 
-![png](/assets/images/great_schools_web_files/img_explore_8.png.png)
+![png](/assets/images/great_schools_web_files/img_explore_8.png)
 
 ## Change in Key Words
 
@@ -109,10 +114,9 @@ We use a hierarchical Bayesian multinomial logit regression model to examine the
 The dependent variable is the topic discussed in a review, estimated from an LDA.  Topics vary from 0 to 1 across a number of topics; the sum of topics for any given review is Although the variable is not multinomial, its resemblance allows us to use multinomial logit regression to estimate how topic distribution changes with independent variables.
 
 The independent variables are:
-<ul><li>School tests, normalized across states
-<li>Poverty, as measured by the percent of students enrolled in free or discounted school lunches
-<li>Charter schools, relative to public schools.
-</ul>
+* School tests, normalized across states
+* Poverty, as measured by the percent of students enrolled in free or discounted school lunches
+* Charter schools, relative to public schools.
 
 Because private schools are not compelled to share test results or lunch program enrollments, we excluded them from this analysis.
 

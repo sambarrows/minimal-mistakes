@@ -480,14 +480,12 @@ compare_tokens
 
 We see that the linear kernel performs best accross all predictive measures, and that we actually get slightly better peformance without precprocessing. Linear kernels often perform well with text classification because when there are a lot of features, mapping the data to a higher dimensional space [does not really improve performance](http://www.svm-tutorial.com/2014/10/svm-linear-kernel-good-text-classification/).
 
-# Conclusions and Next Steps
+# Conclusions
 
 The most striking findings here are that it preprocessing makes little difference to the performance of our algorithms and that both Naive Bayes and SVMs perform similarly to one another. The latter finding, in particular, is a suprise. Whilst previous research by [Banko and Brill](http://ucrel.lancs.ac.uk/acl/P/P01/P01-1005.pdf) has shown that classifiers perform similarly to one another on extremely large corpora, I was not expecting such similar results with out relatively small sample.
 
 If I have time to pursue this project further, there are a number of steps I would like to take:
-<ul>
-<li>explore how unusual it is to have my differnet models and classifiers perform so similarly, and triple-check that there is no issue with my code</li>
-<li>improve my classifiers, starting by looking at examples that are mislassified
-<li>experiment with other classifiers</li>
-<li>run my models with a larger dataset, ideally, with 142.8 million reviews in McAuley's full dataset</li>
-</ul>
+* explore how unusual it is to have my differnet models and classifiers perform so similarly, and triple-check that there is no issue with my code
+* improve my classifiers, starting by looking at examples that are mislassified
+* experiment with other classifiers
+* run my models with a larger dataset, ideally, with 142.8 million reviews in McAuley's full dataset
