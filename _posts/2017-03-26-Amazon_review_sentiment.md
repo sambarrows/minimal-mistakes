@@ -1,6 +1,7 @@
 ---
 title: "Sentiment Analysis of Amazon Reviews"
 excerpt: "With naive Bayes and SVM, using Python (sklearn)."
+teaser: /assets/images/amazon_review_stars.png
 ---
 
 In this ongoing project, I explore different methods for analyzing the sentiment of Amazon reviews.
