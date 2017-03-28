@@ -266,7 +266,7 @@ LDA is a hierarchical Bayesian model: a statistical model written in multiple le
 
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
 
-* number of topics, k</li>
+* number of topics, k
 * model hyperparameters (paramaters of the prior distributions)
     * \\( \alpha \\) - influences document-topic density: with a higher alpha documents are more likely to be made up of a mixture of most of the topics, and not any single topic specifically.
     * \\( \eta \\) - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically.
