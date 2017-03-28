@@ -5,6 +5,8 @@ header:
   teaser: /assets/images/amazon_review_stars.png
 ---
 
+{% include toc %}
+
 In this ongoing project, I explore different methods for analyzing the sentiment of Amazon reviews.
 
 # Load and Tidy Data

@@ -5,6 +5,8 @@ header:
   teaser: /assets/images/school_websites_web_files/school_topics.png 
 ---
 
+{% include toc %}
+
 I investigate what information schools in England choose to present on their websites. In particular, should propsective parents should be concerned if a school fails to mention examination or inspection results? 
 
 On the face of it, we might suspect that if a school's website talks a lot about culture or other attributes but fails to mention academic performance, this should raise the suspicions. Poorly performing schools may well bury bad news and try and highlight the areas were they perform better.
