@@ -234,7 +234,7 @@ for x in X_test[y_test > y_pred][:2]:
     
 
 
-# Naive Bayes: Improving Preprocessing
+# Improving Preprocessing
 
 Tokenization is usually accompanied by other preprocessing steps, such as:
 <ol>
@@ -309,9 +309,9 @@ eval_predictions(y_test, y_pred)
 
 The extra preprocessing has little effect. In fact, our original approach did slightly better. But can we improve with a different algorithm?
 
-# Support Vector Machines (SVMs)
+# Support Vector Machines
 
-I will also try classifying the reviews using SVMs. SVMs perform classification by constructing hyperlanes to separate different classes. In constructino the hyperlans SVMs try firstly to classify observations correctly, and subject to this constain seek to maximize the margin (the distance between the hyperlane and the nearest point). 
+I will also try classifying the reviews using Support Vector Machines (SVMs). SVMs perform classification by constructing hyperlanes to separate different classes. In constructino the hyperlans SVMs try firstly to classify observations correctly, and subject to this constain seek to maximize the margin (the distance between the hyperlane and the nearest point). 
 
 I start by creating a TF-IDF matrix. Rather than just measuring the number of times a word appears in a document, as we did above, we now multiply this by the inverse document frequency (the invester of the number of documents the words appears in). Thus, a words TF-IDF is a measure of relevance. As above, I will initially use limited preprocessing.
 

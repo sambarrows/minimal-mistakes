@@ -273,8 +273,10 @@ There a number of choices that we need to make in setting up our model (this lis
     * \\( \alpha \\) - influences document-topic density: with a higher alpha documents are more likely to be made up of a mixture of most of the topics, and not any single topic specifically.
     * \\( \eta \\) - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically.
 
-## Choose number of topics
+## Selecting parameter values
 
+### Select number of topics
+{:.no_toc}
 I seek to compare the performance of models with different parameter values I use per-word perpelexity, following [Blie et al. (2003)](http://www.cs.princeton.edu/~blei/papers/BleiNgJordan2003.pdf). Perplexity is a measure of the likelihood achieved on a held-out test set. A lower perplexity indicates better performance. 
 
 I begin by calculating the perplexity of models with different numbers of topics. I run this on EC2 using a m4.4xlarge instance type, and use gensim's [ldamulticore](https://radimrehurek.com/gensim/models/ldamulticore.html) to parellize the model training across the instance's eight cores. I then read in thse results locally, and plot perplexity against the number of topics.
@@ -299,11 +301,11 @@ We see that per-word perplexity is increasing in the number of topics, which sho
 
 In light of this issue with gensim, I ignore the elbow method. I instead spent some time experimeting with different numbers of topics to find a value of k that grouped the blurbs into meaninful groups and was not so large it would make interpretation challenging. I settled on eight topics.
 
-## Choose values of alpha and eta
-
+### Select values of alpha and eta
+{:.no_toc}
 I had originally indended to conduct a grid search to explore how perplexity varies with different values of alpha and eta. However, given the problems with calcuating perplexity when using gensim, I instead decided to use the deafult values of alpha and eta.
 
-## Run model with chosen parameters
+## Fit model
 
 I fit a model with 8 topics and teh default values of alpha and eta. I again fit this model in EC2.
 
@@ -396,7 +398,7 @@ df.to_csv('../my_datasets/lda_dat.csv')
 df.head()
 ```
 
-## Improving my LDA analysis
+## Improving clustering
 
 There are at least two ways in which I should like to improve my LDA analysis. First, I should like to address the issue of calculating perplexity, and find optimal values for k, alpha, and eta. Probably the best approach would be to find a different measure for evaluating the models. Perplexity would not be ideal even if it worked, as it is a measure of predictive performance, but I am not using LDA for the purposes of prediction.
 
@@ -420,13 +422,13 @@ I examine whether the mean proportion in each topic varies across school types. 
 
 ![png](/assets/images/school_websites_web_files/school_topics.png)
 
-## Test score performance
+## Test scores
 
 I examine whether there is a relationship between an elemettary school's performance in Key Stage 2 math exams (exams that students sit at the end of primary school) and topic proportions in the schools clurbs. We might expect, for example, that schools with greater academic success would see a higher topic proportion for the correspondign topic. However, we see no evidence that this is the case.
 
 ![png](/assets/images/school_websites_web_files/performance_1.png)
 
-## Ofsted instepections.
+## Ofsted instepections
 
 In addition to school test score being publicly reported, schools in England are subject to inspections by Ofsted. I explore whether there is a relationship between the grade a school was last assigned by Ofsted, and the topics discussed on their website.
 

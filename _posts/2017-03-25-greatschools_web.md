@@ -29,7 +29,7 @@ Table fields and data types are given in the model below.
 
 ![png](/assets/images/great_schools_web_files/img_ml_final_project_data_model.png)
 
-# Modeling Topics Using Latent Dirichlet Allocation (LDA)
+# Latent Dirichlet Allocation
 
 ## Text Processing
 
@@ -48,9 +48,9 @@ During the course of working on the project, the order of operations being perfo
 </ol>
 
 
-## Fitting LDA Model
+## Fitting Model
 
-Various models were considered and experimented with using a variety of tools. In python LSI, LDA and HDP were all experimented with. Ultimately we chose to work with the gensim implementation of LDA. 
+Various models were considered and experimented with using a variety of tools. In Python, latent semantic indexing (LSI), latent Dirichlet allocation (LDA), and hierarchical Dirichlet process (HDP) were all experimented with. Ultimately we chose to work with the gensim implementation of LDA. 
 
 LDA operates over a bag of words (bow). The bow is created from first creating a dictionary of our final processed text, and then passing the text to the dictionary to create a bow. Our dictionary was created from the output of our text processing. After the dictionary was created, we removed infrequent and frequent words by using the dictionary.filter_extremes() method. We removed all words that did not appear in at least 5 documents, removed all words that appeared in more than 60% of the documents.
 
@@ -133,13 +133,13 @@ Charter school reviews are significantly more likely than public schools to disc
 ## School Performance
 
 ### Measuring School Performance
-
+{:.no_toc}
 Since the passage of No Child Left Behind (NCLB) in 2001, states have been required to test the proficiency of students in public schools in grades 3-8 and to make these results publicly available at the school level. However, as NCLB left it for each state to design and modify the examinations sat by its students, there is considerable variation in the difficulty of examinations across both states and years (for example, see [Peterson, Barrows, and Gift 2016](http://educationnext.org/after-common-core-states-set-rigorous-standards/)).
 
 At the time of our analysis, no measure existed that allowed for the comparison of school performance nationwide. We therefore contructed the first such measure. [Greene and McGee](http://globalreportcard.org/docs/AboutTheIndex/Global-Report-Card-Technical-Appendix-9-28-11.pdf) have constructed a nationally comparable measure of performance at the school district level. We followed their methodology, but applying it at the school level for the first time and focusing on the proportionof students in a school achieving the proficiency cut score or better in Mathematics in Grade 4 in a given year. 
 
 ### Relationship Between Performance and Topics
-
+{:.no_toc}
 Schools with better test scores are more likely to have reviews about student future and programs relative to behavior, but only in certain states (7 out of 14 states examined). Further, the relationship between school performance and school topics is weak, as becomes apparent if we plot topic proportions against performance, for example (note that this plot is not based on the model that we fitted):  
 
 ![png](/assets/images/great_schools_web_files/topics_vs_performance_red.png)
