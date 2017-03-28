@@ -93,11 +93,11 @@ Many of the blurbs of more than 4000 characters in length appear to have picked 
 
 I next restrict my sample to open state-funded and independent schools. I exclude both closed establishments and other types of establishment such as high education institutions. I also drop several types of state-funded schools for which there are few observations or which are a distinct type of institution, such as referall units, nursery schools, and university technical colleges. After mkaing these drops, I am left with a sample of 4676 observations. 
 
-# Clustering with Latent Dirichlet Allocation (LDA)
+# Latent Dirichlet Allocation
 
-I identify the topics discussed in each school webside blurb using LDA, which is a mixed membership model. Mixed memership models allow us to associate a given data point with a set of different cluster assignments and to capture the relative proportion of different clusters in a datapoint.
+I identify the topics discussed in each school webside blurb using latent Dirichlet allocation (LDA), which is a mixed membership model. Mixed memership models allow us to associate a given data point with a set of different cluster assignments and to capture the relative proportion of different clusters in a datapoint.
 
-## Load packages and data
+## Preprocess data
 
 Read in packages and data.
 
@@ -123,8 +123,6 @@ Get list of URNs (will need later when put it back together) and blurbs.
 urn_series = df["urn"]
 blist = df["blurb"].tolist()
 ```
-
-## Preprocess data
 
 Before fitting my LDA model, I need to break each blurb into individual elements that can serve as features. In addition to tokenizing (breaking up each blurb) I will perform a number of steps in the following order (although note that there are multiple ways in which these operations could be combined):
 <ol>
@@ -245,7 +243,7 @@ my_dict.save('../aws_dir/lda_project/Data/lda_dictionary.dict')
 corpora.MmCorpus.serialize('../aws_dir/lda_project/Data/lda_corpus.mm', corpus)
 ```
 
-## Brief Overview of LDA
+## Overview of LDA
 
 Here, I briefly discuss the LDA model and inference using this model. For further details, David Blei has an [excellent couple of talks](http://videolectures.net/mlss09uk_blei_tm/) introducing topic modelling, and LDA in particular.
 
