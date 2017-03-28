@@ -258,7 +258,7 @@ For each document, d
     * Draw a word from the topic that you selected in (2a): \\( w_{d,n} \sim \beta_{z_{d,n}} \\)
 
 
-### Computation
+### Computation TEST TEST
 {:no_toc}
 The only variable form the above model that we actually get to observe is the words \\( W_{d,n} \\). We need to infer the latent (hidden) variables in the model from the data; specifically, we need to infer per-word topic assignments (\\( z_{d,n} \\)), per-document topic proportions (\\( \theta_d \\)), and per-corpus topic distributions (\\( \beta_k \\)).
 
