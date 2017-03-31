@@ -2,7 +2,7 @@
 title: 'Analyzing School Review Topics'
 excerpt: 'With LDA, using R, Python (nltk, gensim), and EC2.'
 header:
-  teaser: /assets/images/great_schools_web_files/alluspoints.png  
+  teaser: /assets/images/teaser_images/great_schools.png  
 ---
 
 {% include toc %}

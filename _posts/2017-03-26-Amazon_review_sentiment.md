@@ -2,7 +2,7 @@
 title: "Sentiment Analysis of Amazon Reviews"
 excerpt: "With naive Bayes and SVM, using Python (sklearn)."
 header:
-  teaser: /assets/images/amazon_review_stars.png
+  teaser: /assets/images/teaser_images/amazon_reviews.png
 ---
 
 {% include toc %}

@@ -2,7 +2,7 @@
 title: 'Analyzing School Website Topics'
 excerpt: 'With LDA, using R, Python (scrapy, nltk, gensim), and EC2.'
 header:
-  teaser: /assets/images/school_websites_web_files/school_topics.png 
+  teaser: /assets/images/teaser_images/school_websites.png 
 ---
 
 {% include toc %}
