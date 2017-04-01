@@ -7,11 +7,11 @@ header:
 
 {% include toc %}
 
-I investigate what information schools in England choose to present on their websites. In particular, should propsective parents should be concerned if a school fails to mention examination or inspection results? 
+I investigate what information schools in England choose to present on their websites. In particular, should prospective parents should be concerned if a school fails to mention examination or inspection results? 
 
 On the face of it, we might suspect that if a school's website talks a lot about culture or other attributes but fails to mention academic performance, this should raise the suspicions. Poorly performing schools may well bury bad news and try and highlight the areas were they perform better.
 
-But this isn't necessarily the case. The theory of "information unravelling" proposes that because consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do, everyone has an incentive to disclose. Theory of "countersignalling goes even further: not disclosing information may signal that schools are so confident that there academic performance is good they don't even need to mention it (see [Luca & Smith 2015](http://www.sciencedirect.com/science/article/pii/S0167268114003369)).
+But this is not necessarily the case. The theory of "information unravelling" proposes that because consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do, everyone has an incentive to disclose. The theory of "countersignalling goes even further: not disclosing information may signal that schools are so confident their academic performance is impressive that they don't even need to mention it (see [Luca & Smith 2015](http://www.sciencedirect.com/science/article/pii/S0167268114003369)).
 
 By shedding light on what topics schools choose to discuss on their websites, I hope to help parents understand whether they can take this information at face value when searching for schools. You can find a more detailed write-up of the methods used and complete replication code and data on my github.
 
@@ -442,10 +442,10 @@ It appears that schools getting the lowest grade mention inspectsion more. Howev
 
 These results indicate that the topics discussed on school websites do not vary with the underlying performance of schools. 
 
-There are numerous possible explanations for these findings. It could be, of course, that the finding is erroneous. Possibly a different approach to clustering websites would yield different results. Likewise, perhaps the results would change if I were able to increase my sample size.
+There are numerous possible explanations for these findings. It could be, of course, that the findings are erroneous. Possibly a different approach to clustering websites would yield different results. Likewise, perhaps the results would change if I were able to increase my sample size.
 
-These findings, if we accept them, are also consistent with information unravelling. Even schools that don't peform well academically still mention academics, for example, because it will look bad if they don't. 
+These findings, if we accept them, are also consistent with information unravelling. Even schools that perform poorly academically still mention academics, for example, because it will look bad if they do not. 
 
-But particular contextual factors, rather than information unravelling, may also explain these findings. For example, text score results and Ofsted inspection grades are so widely available that schools may have little incentive to bury them.  
+But particular contextual factors, rather than information unravelling, may also explain these findings. For example, test score results and Ofsted inspection grades are so widely available that schools may have little incentive to bury them.  
 
-The key takeway for now, however, is that parents can broadly take school websites at face value. If a school fails to mention it's test results, parents should not take this as an indication that it's test results are likely to be bad. School websites may well, therefore, be a useful tool for parents' searching for schools.
+The key takeaway for now, however, is that parents can broadly take school websites at face value. If a school fails to mention its test results, parents should not take this as an indication that its test results are likely to be bad. School websites may well, therefore, be a useful tool for parents searching for schools.

@@ -7,9 +7,7 @@ header:
 
 {% include toc %}
 
-This project analyzes data from the nearly one million ratings and reviews submitted to GreatSchools, the largest online review site for schools in the world. We want to understand whether reviews contain information that may be useful for either parents or policymakers. We also want to understand the types of pressures that different schools may face if parents respond to online reviews in their school choices and online reviews serve as a form of crowd-sourced accountability.
-
-You can find a much more detailed discussion of our methods and findings [here](https://sites.google.com/site/cs109greatschools/?invite=CNHf3egM) and complete code on my github. Unfortunately, I cannot share the data used as it is proprietory and under our licensing agreement was erased following the project.
+This project analyzes data from the nearly one million ratings and reviews submitted to GreatSchools, the largest online review site for schools in the world. We want to understand whether reviews contain information that may be useful for either parents or policymakers. We also want to understand the types of pressures that different schools may face if parents respond to online reviews in their school choices and online reviews serve as a form of crowd-sourced accountability.You can find a much more detailed discussion of our methods and findings [here](https://sites.google.com/site/cs109greatschools/?invite=CNHf3egM) and complete code on my github. Unfortunately, I cannot share the data used as it is proprietary and under our licensing agreement was erased following the project.
 
 # Background
 
@@ -35,7 +33,7 @@ Table fields and data types are given in the model below.
 
 Text processing was done using Pythons’s Natural Language Toolkit (NLTK) and iPython clustering. GreatSchools reviews were ingested from the database, scattered to multiple ipython worker nodes, processed and finally merged back together into one text.
 
-During the course of working on the project, the order of operations being performed in the text pipeline changed. There are many ways in which the operations can be combined, and most orderings involve a trade-off between performance and extracting the cleanest text. Ultimately, we performed the following steps in the oder given below:
+During the course of working on the project, the order of operations being performed in the text pipeline changed. There are many ways in which the operations can be combined, and most orderings involve a trade-off between performance and extracting the cleanest text. Ultimately, we performed the following steps in the order given below:
 <ol> 
 <li><i>Remove encodings</i>: The text contained various escape character sequences and HTML encodings that needed to be removed, as not all the functions being used in text processing could handle them.</li>
 <li><i>Tokenize sentences and words</i>:using the NLTK sentence and word tokenizers.</li>
@@ -71,7 +69,7 @@ Looking at the topics we have identified using LDA, the largest proportion of re
 
 ## Change in Key Words
 
-We begin by looking at how the prevelance of particular words has changed over time.
+We begin by looking at how the prevalence of particular words has changed over time.
 
 Mentions of "safety" initially decline, with a bump in 2007, and now appearing to be on the increase again, possibly instigated by recent school shootings.
 
@@ -81,7 +79,7 @@ With the Great Recession, budget and funding has been on the minds of policymake
 
 ![png](/assets/images/great_schools_web_files/img_explore_5.png)
 
-Looking at individual reviews sparked interest in how people viewed Spanish as a foreign language and latin immigrants.  Surprisingly, plotting the word trend revealed an eerily close correlation between reviews mentioning "spanish" and the stock market.  While not causal, and possibly spurious, there may be underlying mechanisms that could be worth exploring in a future project.
+Looking at individual reviews sparked interest in how people viewed Spanish as a foreign language and Latin-American immigrants.  Surprisingly, plotting the word trend revealed an eerily close correlation between reviews mentioning "spanish" and the stock market.  While not causal, and possibly spurious, there may be underlying mechanisms that could be worth exploring in a future project.
 
 ![png](/assets/images/great_schools_web_files/img_explore_6.png)
 
@@ -113,7 +111,7 @@ Although students and parents have different goals and objectives when it comes 
 
 ## Bayesian Model
 
-We use a hierarchical Bayesian multinomial logit regression model to examine the relationship between multiple explanatory variables and the topics discussed in a review. Since multinomial logit estimate procedures typically require the independent variable to be categorical, we customize a procedure based on functions in the  RR  package  bayesmbayesm . We use Metropolis algorithm to draw from the posterior distribution.
+We use a hierarchical Bayesian multinomial logit regression model to examine the relationship between multiple explanatory variables and the topics discussed in a review. Since multinomial logit estimate procedures typically require the independent variable to be categorical, we customize a procedure based on functions in the R package bayesm. We use Metropolis algorithm to draw from the posterior distribution.
 
 The dependent variable is the topic discussed in a review, estimated from an LDA.  Topics vary from 0 to 1 across a number of topics; the sum of topics for any given review is Although the variable is not multinomial, its resemblance allows us to use multinomial logit regression to estimate how topic distribution changes with independent variables.
 
@@ -136,7 +134,7 @@ Charter school reviews are significantly more likely than public schools to disc
 {:.no_toc}
 Since the passage of No Child Left Behind (NCLB) in 2001, states have been required to test the proficiency of students in public schools in grades 3-8 and to make these results publicly available at the school level. However, as NCLB left it for each state to design and modify the examinations sat by its students, there is considerable variation in the difficulty of examinations across both states and years (for example, see [Peterson, Barrows, and Gift 2016](http://educationnext.org/after-common-core-states-set-rigorous-standards/)).
 
-At the time of our analysis, no measure existed that allowed for the comparison of school performance nationwide. We therefore contructed the first such measure. [Greene and McGee](http://globalreportcard.org/docs/AboutTheIndex/Global-Report-Card-Technical-Appendix-9-28-11.pdf) have constructed a nationally comparable measure of performance at the school district level. We followed their methodology, but applying it at the school level for the first time and focusing on the proportionof students in a school achieving the proficiency cut score or better in Mathematics in Grade 4 in a given year. 
+At the time of our analysis, no measure existed that allowed for the comparison of school performance nationwide. We therefore constructed the first such measure. [Greene and McGee](http://globalreportcard.org/docs/AboutTheIndex/Global-Report-Card-Technical-Appendix-9-28-11.pdf) have constructed a nationally comparable measure of performance at the school district level. We followed their methodology, but applying it at the school level for the first time and focusing on the proportion of students in a school achieving the proficiency cut score or better in Mathematics in Grade 4 in a given year. 
 
 ### Relationship Between Performance and Topics
 {:.no_toc}
@@ -152,7 +150,5 @@ Poverty also steers the topics to more "behavior" subjects rather than student f
 
 # Conclusions
 
-Great schools reviews to contain information that amy be useful to policymakers..... The different topics discussed in school reviews also suggest that, to the extent that parents or school pay attention to school reviews, different types of schools with different characteristics may face different types of pressures from this new form of accountability.
-
-We also find, however, that the relationship between school characteristics and the topics discussed in reviews is relatively week. In other words, at the the individual school level, school reviews do not appear to be a particularly useful predictor of school characteristics. This is hardly surprising, given the sparsity of school reviews. It strongly suggests, however, that parents should exericse caution in putting much weight on school reviews in making school choices.
+GreatSchools reviews contain information that may be useful to policymakers. We see trends over time in the mention of certain key words, and variation across school types in the topics that reviewers discuss. The different topics discussed in school reviews also suggest that, to the extent that parents or school pay attention to school reviews, different types of schools with different characteristics may face different types of pressures from this new form of accountability.We also find, however, that the relationship between school characteristics and the topics discussed in reviews is relatively week. In other words, at the individual school level, school reviews do not appear to be a particularly useful predictor of school characteristics. This is hardly surprising, given the sparsity of school reviews. It suggests, however, that parents should exercise caution in putting much weight on school reviews in making school choices.
 
