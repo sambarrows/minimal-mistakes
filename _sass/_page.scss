@@ -39,6 +39,8 @@
 .page__title {
   margin-top: 0;
   line-height: 1;
+  font-size: $custom-size-32;
+  margin-bottom: $custom-size-32;
 
   & + .page__meta {
     margin-top: -0.5em;
