@@ -7,7 +7,7 @@ header:
 
 {% include toc %}
 
-In this ongoing project, I explore different methods for analyzing the sentiment of Amazon reviews.
+In this ongoing project, I explore different methods for analyzing the sentiment of Amazon product reviews. I employ a dataset of text reviews and corresponding products ratings assigned by each reviewer as labelled training data, and predict product ratings on a test data set. I compare the predictive power of different approaches to text preprocessing with both naïve Bayes and support vector machine (SVM) models.
 
 # Load and Tidy Data
 
@@ -117,7 +117,7 @@ df['overall'].value_counts().plot(kind='bar', color='cornflowerblue')
 
 # Naive Bayes
 
-Naive Bayes, in short, uses Bayes rule to find the most likely class for each document. In order to do this it makes a couple of strong assumptions that it is worth being aware of: the position of each word in a document doesn't matter (bag of words), and feature probabilities are independent given the class (conditional independence). Jurafsky and Manning have a great introduction to [Naive Bayes and sentiment analysis](https://www.youtube.com/watch?v=c3fnHA6yLeY&list=PL6397E4B26D00A269&index=24). Kevin Markham has [slides](https://github.com/justmarkham/pycon-2016-tutorial) and and accompanying [talk](https://www.youtube.com/watch?v=WHocRqT-KkU) that give an introduction to Naive Bayes in scikit-learn.
+Naive Bayes, in short, uses Bayes rule to find the most likely class for each document. In order to do this it makes a couple of strong assumptions that it is worth being aware of: the position of each word in a document doesn't matter (bag of words), and feature probabilities are independent given the class (conditional independence). Jurafsky and Manning have a great introduction to [Naive Bayes and sentiment analysis](https://www.youtube.com/watch?v=c3fnHA6yLeY&list=PL6397E4B26D00A269&index=24). Kevin Markham has [slides](https://github.com/justmarkham/pycon-2016-tutorial) and accompanying [talk](https://www.youtube.com/watch?v=WHocRqT-KkU) that give an introduction to Naive Bayes in scikit-learn.
 
 First, drop observations containg NaN in review or star rating.
 
@@ -244,7 +244,7 @@ Tokenization is usually accompanied by other preprocessing steps, such as:
 <li><i>Remove words not containing letters</i></li>
 <li><i>Remove words containing numbers</i></li>
 <li><i>Remove stopwords</i>: stopwords are a list of high frequency words like, the, to, and also.</li>
-<li><i>Lemmatize</i>: reduces the dimension of the data eby aggregating words that either are the same root or have the same meaning.</li>
+<li><i>Lemmatize</i>: reduces the dimension of the data by aggregating words that either are the same root or have the same meaning.</li>
 </ol>
 
 Let's try including some of these steps and see if it improves our model.
@@ -311,9 +311,8 @@ The extra preprocessing has little effect. In fact, our original approach did sl
 
 # Support Vector Machines
 
-I will also try classifying the reviews using Support Vector Machines (SVMs). SVMs perform classification by constructing hyperlanes to separate different classes. In constructino the hyperlans SVMs try firstly to classify observations correctly, and subject to this constain seek to maximize the margin (the distance between the hyperlane and the nearest point). 
-
-I start by creating a TF-IDF matrix. Rather than just measuring the number of times a word appears in a document, as we did above, we now multiply this by the inverse document frequency (the invester of the number of documents the words appears in). Thus, a words TF-IDF is a measure of relevance. As above, I will initially use limited preprocessing.
+I will also try classifying the reviews using SVMs, which perform classification by constructing hyperplanes to separate different classes. In constructing the hyperplanes, SVMs try firstly to classify observations correctly, and subject to this constraint seek to maximize the margin (the distance between the hyperplane and the nearest point).
+I start by creating a TF-IDF matrix. Rather than just measuring the number of times a word appears in a document, as we did above, we now multiply this by the inverse document frequency (the inverse of the number of documents the words appears in). Thus, a words TF-IDF is a measure of relevance. As above, I will initially use limited preprocessing.
 
 
 ```python
@@ -322,7 +321,7 @@ tfidf_train_1 = tfidf_vectorizer_1.fit_transform(X_train)
 tfidf_test_1 = tfidf_vectorizer_1.transform(X_test)
 ```
 
-SVM is a classifier built on giving us linear separation. Kernels are the main technique for adapting SVMs to develop non-linear classifiers, by taking a low-dimensional input space and happining it to a higher dimensinoal space. Let's try SVM with both a linear kernel and an rbf (Gaussian) kernel that maps the features to a higher dimensional space.
+SVM is a classifier built on giving us linear separation. Kernels are the main technique for adapting SVMs to develop non-linear classifiers, by taking a low-dimensional input space and mapping it to a higher dimensional space. Let’s try SVM with both a linear kernel and an rbf (Gaussian) kernel that maps the features to a higher dimensional space.
 
 
 ```python
@@ -482,6 +481,6 @@ compare_tokens
 
 
 
-We see that the linear kernel performs best accross all predictive measures, and that we actually get slightly better peformance without precprocessing. Linear kernels often perform well with text classification because when there are a lot of features, mapping the data to a higher dimensional space [does not really improve performance](http://www.svm-tutorial.com/2014/10/svm-linear-kernel-good-text-classification/).
+We see that the linear kernel performs best across all predictive measures, and that we actually get slightly better performance without preprocessing. Linear kernels often perform well with text classification because when there are a lot of features, mapping the data to a higher dimensional space [does little to improve performance](http://www.svm-tutorial.com/2014/10/svm-linear-kernel-good-text-classification/).
 
 # ConclusionsThe most striking findings here are that it preprocessing makes little difference to the performance of our algorithms and that both Naive Bayes and SVMs perform similarly to one another. The latter finding, in particular, is a surprise. Whilst previous research by [Banko and Brill](http://ucrel.lancs.ac.uk/acl/P/P01/P01-1005.pdf) has shown that classifiers perform similarly to one another on extremely large corpora, I was not expecting such similar results with our relatively small sample.If I have time to pursue this project further, there are a number of steps I would like to take:* explore how unusual it is to have these different models and classifiers perform so similarly, and triple-check that there is no issue with my code* improve my classifiers, starting by looking at examples that are misclassified* experiment with other classifiers* run my models with a larger dataset, ideally, with 142.8 million reviews in McAuley's full dataset
