@@ -25,7 +25,7 @@ The pymysql library and psql were used to create a class for managing MySQL data
 
 Table fields and data types are given in the model below.
 
-![png](/assets/images/great_schools_web_files/img_ml_final_project_data_model.png)
+![png](/assets/images/great_schools_web_files/img_ml_final_project_data_model.PNG)
 
 # Latent Dirichlet Allocation
 
