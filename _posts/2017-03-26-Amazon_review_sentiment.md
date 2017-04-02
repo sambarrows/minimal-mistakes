@@ -112,7 +112,7 @@ df['overall'].value_counts().plot(kind='bar', color='cornflowerblue')
 
 
 
-![png](Amazon_review_sentiment_files/Amazon_review_sentiment_6_1.png)
+![png](/assets/images/Amazon_review_web_files/Amazon_review_sentiment_6_1.png)
 
 
 # Naive Bayes
