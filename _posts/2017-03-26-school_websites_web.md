@@ -1,6 +1,6 @@
 ---
 title: 'Analyzing School Website Topics'
-excerpt: 'With LDA, using R, Python (scrapy, nltk, gensim), and EC2.'
+excerpt: 'With LDA, using R, Python (scrapy, nltk, gensim), and AWS EC2.'
 header:
   teaser: /assets/images/teaser_images/school_websites.png 
 ---
@@ -9,7 +9,7 @@ header:
 
 I investigate what information schools in England choose to present on their websites. In particular, should prospective parents should be concerned if a school fails to mention examination or inspection results? 
 
-On the face of it, we might suspect that if a school's website talks a lot about culture or other attributes but fails to mention academic performance, this should raise the suspicions. Poorly performing schools may well bury bad news and try and highlight the areas were they perform better.
+On the face of it, we might suspect that if a school's website talks a lot about culture or other attributes but fails to mention academic performance, this should raise the suspicions. Poorly performing schools may well bury bad news and try and highlight the areas where they perform better.
 
 But this is not necessarily the case. The theory of "information unravelling" proposes that because consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do, everyone has an incentive to disclose. The theory of "countersignalling goes even further: not disclosing information may signal that schools are so confident their academic performance is impressive that they don't even need to mention it (see [Luca & Smith 2015](http://www.sciencedirect.com/science/article/pii/S0167268114003369)).
 
@@ -91,11 +91,11 @@ print 'Blurbs >=250 & <=4k characters:', len(found_blurb[(found_blurb['length']>
 
 Many of the blurbs of more than 4000 characters in length appear to have picked up text I wasn't aiming for, such as separate blocks of text on school news. Likewise, starting with the shortest blurbs, it is only when we reach 200-250 characters that the text starts to represent a meaningful welcome blurb with any information about the school. I therefore limit the sample to blurbs of between 250 and 4000 characters.
 
-I next restrict my sample to open state-funded and independent schools. I exclude both closed establishments and other types of establishment such as high education institutions. I also drop several types of state-funded schools for which there are few observations or which are a distinct type of institution, such as referall units, nursery schools, and university technical colleges. After mkaing these drops, I am left with a sample of 4676 observations. 
+I next restrict my sample to open state-funded and independent schools. I exclude both closed establishments and other types of establishment such as high education institutions. I also drop several types of state-funded schools for which there are few observations or which are a distinct type of institution, such as referral units, nursery schools, and university technical colleges. After making these drops, I am left with a sample of 4676 observations.
 
 # Latent Dirichlet Allocation
 
-I identify the topics discussed in each school webside blurb using latent Dirichlet allocation (LDA), which is a mixed membership model. Mixed memership models allow us to associate a given data point with a set of different cluster assignments and to capture the relative proportion of different clusters in a datapoint.
+I identify the topics discussed in each school website blurb using latent Dirichlet allocation (LDA), which is a mixed membership model. Mixed membership models allow us to associate a given data point with a set of different cluster assignments and to capture the relative proportion of different clusters in a data point.
 
 ## Preprocess data
 
@@ -269,7 +269,7 @@ LDA is a hierarchical Bayesian model: a statistical model written in multiple le
 There a number of choices that we need to make in setting up our model (this list is not exhaustive, for example, we might also explore which n-grams to include in our bag of words):
 
 * number of topics, k
-* model hyperparameters (paramaters of the prior distributions)
+* model hyperparameters (parameters of the prior distributions)
     * \\( \alpha \\) - influences document-topic density: with a higher alpha documents are more likely to be made up of a mixture of most of the topics, and not any single topic specifically.
     * \\( \eta \\) - influences topic-word density: a high beta-value means that each topic is likely to contain a mixture of most of the words, and not any word specifically.
 
@@ -299,11 +299,11 @@ plt.show()
 
 We see that per-word perplexity is increasing in the number of topics, which should not be the case. After some digging around on Google, it appears that there is an issue here with gensim. Lots of people have had the same problem (for example, [article 1](https://groups.google.com/forum/#!topic/gensim/iK692kdShi4), [article2](https://groups.google.com/forum/#!topic/gensim/TpuYRxhyIOc), [article 3](http://stackoverflow.com/questions/36913218/lda-with-gensim-strange-values-for-perplexity)) and it does not appear to have been resolved. 
 
-In light of this issue with gensim, I ignore the elbow method. I instead spent some time experimeting with different numbers of topics to find a value of k that grouped the blurbs into meaninful groups and was not so large it would make interpretation challenging. I settled on eight topics.
+In light of this issue with gensim, I ignore the elbow method. I instead spent some time experimenting with different numbers of topics to find a value of k that grouped the blurbs into meaningful groups and was not so large it would make interpretation challenging. I settled on eight topics.
 
 ### Select values of alpha and eta
 {:.no_toc}
-I had originally indended to conduct a grid search to explore how perplexity varies with different values of alpha and eta. However, given the problems with calcuating perplexity when using gensim, I instead decided to use the deafult values of alpha and eta.
+I had originally intended to conduct a grid search to explore how perplexity varies with different values of alpha and eta. However, given the problems with calculating perplexity when using gensim, I instead decided to use the default values of alpha and eta.
 
 ## Fit model
 
@@ -366,7 +366,7 @@ for row in range(3):
     [(4, 0.21437810284783518), (5, 0.66254361423015673), (7, 0.10885034832467859)]
 
 
-Let's convert the topics for each blurb into a dataframe where each blurb is a row, and each topic colum. 
+Let's convert the topics for each blurb into a dataframe where each blurb is a row, and each topic column. 
 
 
 ```python
@@ -402,7 +402,7 @@ df.head()
 
 There are at least two ways in which I should like to improve my LDA analysis. First, I should like to address the issue of calculating perplexity, and find optimal values for k, alpha, and eta. Probably the best approach would be to find a different measure for evaluating the models. Perplexity would not be ideal even if it worked, as it is a measure of predictive performance, but I am not using LDA for the purposes of prediction.
 
-Second, I should like to explore different algorithms for approximating the posterior/fitting my model. So far in training my LDA model I have only used ["online variational Bayes"](https://www.cs.princeton.edu/~blei/papers/HoffmanBleiBach2010b.pdf), the [method built into gensim](https://rare-technologies.com/multicore-lda-in-python-from-over-night-to-over-lunch/). I should like to instead try repeating my analsis with other methods, such as Gibbs sampling.  There is a wrapper in Python that should allow me to use Gibbs sampling with Gensim; however, it might instead be easier to use the LDA method in graphlab.
+Second, I should like to explore different algorithms for approximating the posterior/fitting my model. So far in training my LDA model I have only used ["online variational Bayes"](https://www.cs.princeton.edu/~blei/papers/HoffmanBleiBach2010b.pdf), the [method built into gensim](https://rare-technologies.com/multicore-lda-in-python-from-over-night-to-over-lunch/). I should like to instead try repeating my analysis with other methods, such as Gibbs sampling.  There is a wrapper in Python that should allow me to use Gibbs sampling with Gensim; however, it might instead be easier to use the LDA method in graphlab.
 
 # Analysis and Findings
 
@@ -410,11 +410,11 @@ I conduct my final analysis in R because it has a [package](https://cran.r-proje
 
 ## Phases of school
 
-I begin by linking the results of my LDA anlaysis to data from the original Edubase dataset. I then take a look at the distribution of observations across different phases of school.
+I begin by linking the results of my LDA analysis to data from the original Edubase dataset. I then take a look at the distribution of observations across different phases of school.
 
 ![png](/assets/images/school_websites_web_files/hist_phase_school.png)
 
-Not suprisingly, the vast majority of observations are primary schools (to use American terminology, elementary schools). In the analysis below, therefore, I report the results for primary schools only. However, I conducted the same analyses for secondary schools and the results are substantively similar.
+Not surprisingly, the vast majority of observations are primary schools (to use American terminology, elementary schools). In the analysis below, therefore, I report the results for primary schools only. However, I conducted the same analyses for secondary schools and the results are substantively similar.
 
 ## School types
 
@@ -424,17 +424,17 @@ I examine whether the mean proportion in each topic varies across school types. 
 
 ## Test scores
 
-I examine whether there is a relationship between an elemettary school's performance in Key Stage 2 math exams (exams that students sit at the end of primary school) and topic proportions in the schools clurbs. We might expect, for example, that schools with greater academic success would see a higher topic proportion for the correspondign topic. However, we see no evidence that this is the case.
+I examine whether there is a relationship between an elementary school’s performance in Key Stage 2 math exams (exams that students sit at the end of primary school) and topic proportions in the schools clubs. We might expect, for example, that schools with greater academic success would see a higher topic proportion for the corresponding topic. However, we see no evidence that this is the case.
 
 ![png](/assets/images/school_websites_web_files/performance_1.png)
 
-## Ofsted instepections
+## Ofsted inspections
 
 In addition to school test score being publicly reported, schools in England are subject to inspections by Ofsted. I explore whether there is a relationship between the grade a school was last assigned by Ofsted, and the topics discussed on their website.
 
 ![png](/assets/images/school_websites_web_files/ofsted_topics.png)
 
-It appears that schools getting the lowest grade mention inspectsion more. However, I do not read much into this result as closer examination reveals that very few schools fit into this category.
+It appears that schools getting the lowest grade mention inspections more. However, I do not read much into this result as closer examination reveals that very few schools fit into this category.
 
 ![png](/assets/images/school_websites_web_files/ofsted_grades.png)
 

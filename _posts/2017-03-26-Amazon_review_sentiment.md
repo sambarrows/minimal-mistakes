@@ -160,7 +160,7 @@ X_test_dtm = vect.transform(X_test)
     number words in training corpus: 36897
 
 
-Instantiate and train a Multinomial Naive Bayes model.
+Instantiate and train a multinomial naive Bayes model.
 
 
 ```python
@@ -483,4 +483,4 @@ compare_tokens
 
 We see that the linear kernel performs best across all predictive measures, and that we actually get slightly better performance without preprocessing. Linear kernels often perform well with text classification because when there are a lot of features, mapping the data to a higher dimensional space [does little to improve performance](http://www.svm-tutorial.com/2014/10/svm-linear-kernel-good-text-classification/).
 
-# ConclusionsThe most striking findings here are that it preprocessing makes little difference to the performance of our algorithms and that both Naive Bayes and SVMs perform similarly to one another. The latter finding, in particular, is a surprise. Whilst previous research by [Banko and Brill](http://ucrel.lancs.ac.uk/acl/P/P01/P01-1005.pdf) has shown that classifiers perform similarly to one another on extremely large corpora, I was not expecting such similar results with our relatively small sample.If I have time to pursue this project further, there are a number of steps I would like to take:* explore how unusual it is to have these different models and classifiers perform so similarly, and triple-check that there is no issue with my code* improve my classifiers, starting by looking at examples that are misclassified* experiment with other classifiers* run my models with a larger dataset, ideally, with 142.8 million reviews in McAuley's full dataset
+# ConclusionsThe most striking findings here are that it preprocessing makes little difference to the performance of our algorithms and that both naive Bayes and SVMs perform similarly to one another. The latter finding, in particular, is a surprise. Whilst previous research by [Banko and Brill](http://ucrel.lancs.ac.uk/acl/P/P01/P01-1005.pdf) has shown that classifiers perform similarly to one another on extremely large corpora, I was not expecting such similar results with our relatively small sample.If I have time to pursue this project further, there are a number of steps I would like to take:* explore how unusual it is to have these different models and classifiers perform so similarly, and triple-check that there is no issue with my code* improve my classifiers, starting by looking at examples that are misclassified* experiment with other classifiers* run my models with a larger dataset, ideally, with 142.8 million reviews in McAuley's full dataset

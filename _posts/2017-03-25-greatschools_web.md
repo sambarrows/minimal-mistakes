@@ -1,6 +1,6 @@
 ---
 title: 'Analyzing School Review Topics'
-excerpt: 'With LDA, using R, Python (nltk, gensim), and EC2.'
+excerpt: 'With LDA, using R, Python (nltk, gensim), and AWS EC2.'
 header:
   teaser: /assets/images/teaser_images/great_schools.png  
 ---
@@ -15,9 +15,9 @@ GreatSchools is the largest school review website in the country.  It has over 1
 
 ![png](/assets/images/great_schools_web_files/review_example.png)
 
-# Data Collection and Management
+# Data
 
-We asked GreatSchools if they would share with us all of the more than 1 milllion reviews ever written.  They generously did, together with tens of millions of test results and census records. 
+We asked GreatSchools if they would share with us all of the more than 1 million reviews ever written.  They generously did, together with tens of millions of test results and census records. 
 
 The GS data was inherently relational and required a centralized, structured and secure repository. MySQL was selected for this purpose, and was run on Amazon Web Services' Relational Data Server.  After scaling the database several times, we ultimately used an AWS m1.large server with 2 processors and 7GB RAM.  
 
