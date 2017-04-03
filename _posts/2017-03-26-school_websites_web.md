@@ -13,7 +13,7 @@ On the face of it, we might suspect that if a school's website talks a lot about
 
 But this is not necessarily the case. The theory of "information unravelling" proposes that because consumers can infer that organizations that do not disclose information are likely to have worse quality than firms that do, everyone has an incentive to disclose. The theory of "countersignalling goes even further: not disclosing information may signal that schools are so confident their academic performance is impressive that they don't even need to mention it (see [Luca & Smith 2015](http://www.sciencedirect.com/science/article/pii/S0167268114003369)).
 
-By shedding light on what topics schools choose to discuss on their websites, I hope to help parents understand whether they can take this information at face value when searching for schools. You can find a more detailed write-up of the methods used and complete replication code and data on my github.
+By shedding light on what topics schools choose to discuss on their websites, I hope to help parents understand whether they can take this information at face value when searching for schools. You can find a more detailed write-up of the methods used and complete replication code and data on my [GitHub](https://github.com/sambarrows/school_websites).
 
 # Building Dataset
 

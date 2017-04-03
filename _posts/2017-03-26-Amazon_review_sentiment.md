@@ -7,7 +7,7 @@ header:
 
 {% include toc %}
 
-In this ongoing project, I explore different methods for analyzing the sentiment of Amazon product reviews. I employ a dataset of text reviews and corresponding products ratings assigned by each reviewer as labelled training data, and predict product ratings on a test data set. I compare the predictive power of different approaches to text preprocessing with both naïve Bayes and support vector machine (SVM) models.
+In this ongoing project, I explore different methods for analyzing the sentiment of Amazon product reviews. I employ a dataset of text reviews and the corresponding products ratings assigned by each reviewer. I compare the predictive power of different approaches to text preprocessing with both naïve Bayes and support vector machine (SVM) models. Replication code is available on my [GitHub](https://github.com/sambarrows/amazon_reviews).
 
 # Load and Tidy Data
 
