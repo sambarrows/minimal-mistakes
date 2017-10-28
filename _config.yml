@@ -12,7 +12,7 @@ title_separator          : "-"
 name                     : "Sam Barrows"
 description              : "Sam Barrows (Samuel Barrows) projects and blog."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : /about # the subpath of your site, e.g. "/blog"
+baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : /assets/images/default_teaser.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
@@ -79,7 +79,7 @@ analytics:
 author:
   name             : "Sam Barrows"
   avatar           : https://media.licdn.com/media/p/7/000/2a5/2b5/0da2d95.jpg
-  bio              : "Data Scientist at Booking.com, works in Python and Rx."
+  bio              : "Data Scientist at Booking.com, works in Python and R."
   location         : Amsterdam
   email            : sambarrows@gmail.com
   uri              :
