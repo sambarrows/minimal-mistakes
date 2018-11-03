@@ -2,7 +2,7 @@
 permalink: /about/
 ---
 
-A data scientist trained in quantitative political science, I love applying statistics and machine learning to drive customer engagement. I'm particularly interested in topics in causal inference.
+A data scientist trained in quantitative political science, I love applying statistics and machine learning to understand and drive customer engagement. I'm particularly interested in topics in causal inference.
 
 I'm currently part of Uber's money team in Amsterdam, where I run experimentation, predictive modeling, insights, and reporting for consumer-facing rider payments.
 
